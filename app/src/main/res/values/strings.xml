@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="signup">Register</string>
+    <string name="login">Login</string>
+    <string name="message_welcome_page">Experience an extraordinary adventure with Bangkit and share your inspiring stories on the Bangkit Story!</string>
+    <string name="title_welcome_page">Welcome to Bangkit Story!</string>
+    <string name="title_signup_page">Complete your information below</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Please enter your data</string>
+    <string name="title_login_page">Are you ready to upgrade your skills?</string>
+    <string name="name">Name</string>
+    <string name="message_main_page">Welcome to Dicoding Learning.</string>
+    <string name="greeting">Hello, %1$s,</string>
+    <string name="logout">Logout</string>
+</resources>
