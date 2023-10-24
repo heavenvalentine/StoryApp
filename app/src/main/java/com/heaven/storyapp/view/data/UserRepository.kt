@@ -7,7 +7,8 @@ import com.heaven.storyapp.view.data.pref.UserPreference
 import com.heaven.storyapp.view.data.retrofit.ApiService
 import com.heaven.storyapp.view.login.LoginResponse
 import com.heaven.storyapp.view.signup.SignUpResponse
-import com.heaven.storyapp.view.story.StoryResponse
+import com.heaven.storyapp.view.story.response.DetailStoryResponse
+import com.heaven.storyapp.view.story.response.StoryResponse
 import kotlinx.coroutines.flow.Flow
 
 class UserRepository private constructor(
@@ -62,6 +63,21 @@ class UserRepository private constructor(
         emit(AlertIndicator.Loading)
         try {
             val response = apiService.getStories("Bearer $token")
+            if (response.error){
+                emit(AlertIndicator.Error(response.message))
+            }
+            else {
+                emit(AlertIndicator.Success(response))
+            }
+        } catch (e:Exception){
+            emit(AlertIndicator.Error(e.message.toString()))
+        }
+    }
+
+    fun getDetailStory(id: String, token: String): LiveData<AlertIndicator<DetailStoryResponse>> = liveData{
+        emit(AlertIndicator.Loading)
+        try {
+            val response = apiService.getDetailStory(id,"Bearer $token")
             if (response.error){
                 emit(AlertIndicator.Error(response.message))
             }

@@ -1,15 +1,16 @@
 package com.heaven.storyapp.view.adapter
 
-import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ItemRowStoryBinding
-import com.heaven.storyapp.view.story.ListStoryItem
+import com.heaven.storyapp.view.story.detail.DetailStoryActivity
+import com.heaven.storyapp.view.story.response.ListStoryItem
 
-class StoryAdapter(private val listOfStory: List<ListStoryItem>) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
+class StoryAdapter(private val listOfStory: List<ListStoryItem>, private val token: String) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
 
     class ViewHolder(var binding: ItemRowStoryBinding) : RecyclerView.ViewHolder(binding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,6 +20,7 @@ class StoryAdapter(private val listOfStory: List<ListStoryItem>) : RecyclerView.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val story = listOfStory[position]
+        val token = token
 
         holder.binding.apply {
             tvStoryTitle.text = story.name
@@ -29,11 +31,12 @@ class StoryAdapter(private val listOfStory: List<ListStoryItem>) : RecyclerView.
                 .error(R.drawable.image_dicoding)
                 .into(ivStoryPhoto)
 
-//            itemView.setOnClickListener {
-//                val intent = Intent(itemView.context, DetailActivity::class.java)
-//                intent.putExtra(DetailActivity.EXTRA_USERNAME, user.login)
-//                itemView.context.startActivity(intent)
-//            }
+            cardView.setOnClickListener {
+                val intent = Intent(cardView.context, DetailStoryActivity::class.java)
+                intent.putExtra(DetailStoryActivity.EXTRA_ID, story.id)
+                intent.putExtra(DetailStoryActivity.EXTRA_TOKEN, token)
+                cardView.context.startActivity(intent)
+            }
         }
 
     }

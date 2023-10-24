@@ -8,6 +8,7 @@ import com.heaven.storyapp.view.di.Injection
 import com.heaven.storyapp.view.login.LoginViewModel
 import com.heaven.storyapp.view.main.MainViewModel
 import com.heaven.storyapp.view.signup.SignUpViewModel
+import com.heaven.storyapp.view.story.detail.DetailStoryViewModel
 
 class ViewModelFactory(private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -22,6 +23,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(SignUpViewModel::class.java) -> {
                 SignUpViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(DetailStoryViewModel::class.java) -> {
+                DetailStoryViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

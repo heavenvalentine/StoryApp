@@ -2,12 +2,14 @@ package com.heaven.storyapp.view.data.retrofit
 
 import com.heaven.storyapp.view.login.LoginResponse
 import com.heaven.storyapp.view.signup.SignUpResponse
-import com.heaven.storyapp.view.story.StoryResponse
+import com.heaven.storyapp.view.story.response.DetailStoryResponse
+import com.heaven.storyapp.view.story.response.StoryResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
     @FormUrlEncoded
@@ -29,5 +31,11 @@ interface ApiService {
     suspend fun getStories(
         @Header("Authorization") token: String,
     ): StoryResponse
+
+    @GET("stories/{id}")
+    suspend fun getDetailStory(
+        @Path("id") id: String,
+        @Header("Authorization") token: String
+    ): DetailStoryResponse
 
 }
