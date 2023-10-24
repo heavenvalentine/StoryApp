@@ -11,13 +11,14 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.heaven.storyapp.view.main.MainActivity
+import androidx.core.view.isVisible
 import com.heaven.storyapp.databinding.ActivityLoginBinding
 import com.heaven.storyapp.view.ViewModelFactory
-import com.heaven.storyapp.view.data.pref.UserModel
+import com.heaven.storyapp.view.data.AlertIndicator
+import com.heaven.storyapp.view.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
-    private val viewModel by viewModels<LoginViewModel> {
+    private val loginViewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
     private lateinit var binding: ActivityLoginBinding
@@ -48,18 +49,43 @@ class LoginActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
-            viewModel.saveSession(UserModel(email, "sample_token"))
-            AlertDialog.Builder(this).apply {
-                setTitle("Yeah!")
-                setMessage("Anda berhasil login. Sudah tidak sabar untuk belajar ya?")
-                setPositiveButton("Lanjut") { _, _ ->
-                    val intent = Intent(context, MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
-                    finish()
+            val password = binding.passwordEditText.text.toString()
+
+            loginViewModel.login(email, password).observe(this) { result ->
+                if (result != null) {
+                    when(result) {
+                        AlertIndicator.Loading -> {
+                            binding.progressBar.isVisible = true
+                        }
+                        is AlertIndicator.Success -> {
+                            binding.progressBar.isVisible = false
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Yay!")
+                                setMessage("Login successful.")
+                                setPositiveButton("Lanjut") { _, _ ->
+                                    val intent = Intent(context, MainActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
+                        }
+                        is AlertIndicator.Error -> {
+                            binding.progressBar.isVisible = false
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Oops!")
+                                setMessage("Login is not successful. Check your email and password again.")
+                                setPositiveButton("Ok") { _, _ ->
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
+                        }
+                    }
                 }
-                create()
-                show()
             }
         }
     }

@@ -1,17 +1,20 @@
 package com.heaven.storyapp.view.main
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.heaven.storyapp.databinding.ActivityMainBinding
 import com.heaven.storyapp.view.ViewModelFactory
+import com.heaven.storyapp.view.adapter.StoryAdapter
+import com.heaven.storyapp.view.data.AlertIndicator
+import com.heaven.storyapp.view.story.ListStoryItem
 import com.heaven.storyapp.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -29,15 +32,15 @@ class MainActivity : AppCompatActivity() {
             if (!user.isLogin) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
+            } else {
+                setupView(user.token)
             }
         }
 
-        setupView()
         setupAction()
-        playAnimation()
     }
 
-    private fun setupView() {
+    private fun setupView(token: String) {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
@@ -48,7 +51,29 @@ class MainActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+
+        viewModel.getStories(token).observe(this){ alert ->
+            if (alert != null){
+                when(alert) {
+                    AlertIndicator.Loading -> {
+                        binding.progressBar.isVisible = true
+                    }
+                    is AlertIndicator.Error -> {
+                        binding.progressBar.isVisible = false
+                        Toast.makeText(this, alert.error, Toast.LENGTH_SHORT).show()
+                    }
+                    is AlertIndicator.Success -> {
+                        binding.progressBar.isVisible = false
+                        binding.rvStories.layoutManager = LinearLayoutManager(this)
+                        binding.rvStories.adapter = triggerRecyclerView(alert.data.listStory)
+                    }
+                }
+            }
+        }
     }
+
+    private fun triggerRecyclerView(list: List<ListStoryItem>) : StoryAdapter = StoryAdapter(list)
+
 
     private fun setupAction() {
         binding.logoutButton.setOnClickListener {
@@ -56,20 +81,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun playAnimation() {
-        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
-            duration = 6000
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-        }.start()
-
-        val name = ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 1f).setDuration(100)
-        val message = ObjectAnimator.ofFloat(binding.messageTextView, View.ALPHA, 1f).setDuration(100)
-        val logout = ObjectAnimator.ofFloat(binding.logoutButton, View.ALPHA, 1f).setDuration(100)
-
-        AnimatorSet().apply {
-            playSequentially(name, message, logout)
-            startDelay = 100
-        }.start()
-    }
 }

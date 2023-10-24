@@ -2,46 +2,31 @@
  
 1.Halaman Autentikasi
  
-[] Menampilkan halaman login untuk masuk ke dalam aplikasi
-    [] Email (R.id.ed_login_email)
-    [] Password (R.id.ed_login_password)
+[x] Menampilkan halaman login untuk masuk ke dalam aplikasi
+    [x] Email (R.id.ed_login_email)
+    [x] Password (R.id.ed_login_password)
 
 
-[] Membuat halaman register untuk mendaftarkan diri dalam aplikasi. Berikut input yang dibutuhkan.
-    [] Nama (R.id.ed_register_name)
-
-    [] Email (R.id.ed_register_email)
-
-    [] Password (R.id.ed_register_password)
-
-    [] Password wajib disembunyikan.
-
+[x] Membuat halaman register untuk mendaftarkan diri dalam aplikasi. Berikut input yang dibutuhkan.
+    [x] Nama (R.id.ed_register_name)
+    [x] Email (R.id.ed_register_email)
+    [x] Password (R.id.ed_register_password)
+    [x] Password wajib disembunyikan.
    
-[] Membuat Custom View berupa EditText pada halaman login atau register dengan ketentuan sebagai berikut.
-
-    [] Jika jumlah password kurang dari 8 karakter, menampilkan pesan error secara langsung pada EditText tanpa harus pindah form atau klik tombol dulu.
-
-    [] Menyimpan data sesi dan token di preferences. Data sesi digunakan untuk mengatur alur aplikasi dengan spesifikasi seperti berikut.
-
-    [] Jika sudah login langsung masuk ke halaman utama.
-
-    [] Jika belum maka akan masuk ke halaman login.
+[x] Membuat Custom View berupa EditText pada halaman login atau register dengan ketentuan sebagai berikut.
+    [x] Jika jumlah password kurang dari 8 karakter, menampilkan pesan error secara langsung pada EditText tanpa harus pindah form atau klik tombol dulu.
+    [x] Menyimpan data sesi dan token di preferences. Data sesi digunakan untuk mengatur alur aplikasi dengan spesifikasi seperti berikut.
+    [x] Jika sudah login langsung masuk ke halaman utama.
+    [x] Jika belum maka akan masuk ke halaman login.
 
 
-[] Terdapat fitur untuk logout (R.id.action_logout) pada halaman utama dengan ketentuan sebagai berikut.
-
-    [] Ketika tombol logout ditekan, informasi token, dan sesi harus dihapus.
-
-    [] Daftar Cerita (List Story)
-
-    [] Syarat yang harus dipenuhi sebagai berikut.
-
-        [] Menampilkan daftar cerita dari API yang disediakan. Berikut minimal informasi yang wajib Anda tampilkan.
-
-        [] Nama user (R.id.tv_item_name)
-
-        [] Foto  (R.id.iv_item_photo)
-
+[x] Terdapat fitur untuk logout (R.id.action_logout) pada halaman utama dengan ketentuan sebagai berikut.
+    [x] Ketika tombol logout ditekan, informasi token, dan sesi harus dihapus.
+    [x] Daftar Cerita (List Story)
+    [x] Syarat yang harus dipenuhi sebagai berikut.
+        [x] Menampilkan daftar cerita dari API yang disediakan. Berikut minimal informasi yang wajib Anda tampilkan.
+        [x] Nama user (R.id.tv_item_name)
+        [x] Foto  (R.id.iv_item_photo)
 
 [] Muncul tampilan detail ketika salah satu item cerita ditekan. Berikut  minimal informasi yang wajib Anda tampilkan.
 
@@ -84,3 +69,5 @@
     [] Shared Element
 
     [] Tuliskan jenis dan lokasi animasi pada Student Note.
+
+[] mengganti default error di glide storyadapter

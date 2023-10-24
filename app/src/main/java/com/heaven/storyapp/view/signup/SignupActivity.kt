@@ -4,15 +4,26 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.google.android.material.textfield.TextInputLayout
+import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivitySignupBinding
+import com.heaven.storyapp.view.ViewModelFactory
+import com.heaven.storyapp.view.data.AlertIndicator
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
+    private val signUpViewModel by viewModels<SignUpViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +31,28 @@ class SignupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupView()
-        setupAction()
         playAnimation()
+
+        binding.passwordEditText.addTextChangedListener(object:TextWatcher{
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int){
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (s.toString().length >= 8) {
+                    binding.passwordEditText.error = null
+                    binding.signupButton.isEnabled = true
+                    binding.passwordEditTextLayout.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
+                } else {
+                    binding.passwordEditText.error = getString(R.string.msg_error_password)
+                    binding.signupButton.isEnabled = false
+                    binding.passwordEditTextLayout.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
+                }
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                setupAction()
+            }
+        })
     }
 
     private fun setupView() {
@@ -39,17 +70,45 @@ class SignupActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.signupButton.setOnClickListener {
+            val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
 
-            AlertDialog.Builder(this).apply {
-                setTitle("Yeah!")
-                setMessage("Akun dengan $email sudah jadi nih. Yuk, login dan belajar coding.")
-                setPositiveButton("Lanjut") { _, _ ->
-                    finish()
+            signUpViewModel.signUp(name, email, password).observe(this) { result ->
+                if (result != null) {
+                    when(result) {
+                        AlertIndicator.Loading -> {
+                            binding.progressBar.isVisible = true
+                        }
+                        is AlertIndicator.Success -> {
+                            binding.progressBar.isVisible = false
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Yay!")
+                                setMessage("The account with the email $email is ready. Let's log in and share your story.")
+                                setPositiveButton("Next") { _, _ ->
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
+                        }
+                        is AlertIndicator.Error -> {
+                            binding.progressBar.isVisible = false
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Oops!")
+                                setMessage("The account with the email $email is not ready. Let's try again.")
+                                setPositiveButton("Ok") { _, _ ->
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
+                        }
+                    }
                 }
-                create()
-                show()
             }
+
+
         }
     }
 
