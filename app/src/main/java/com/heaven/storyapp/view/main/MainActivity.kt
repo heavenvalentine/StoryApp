@@ -3,6 +3,8 @@ package com.heaven.storyapp.view.main
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -10,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivityMainBinding
 import com.heaven.storyapp.view.ViewModelFactory
 import com.heaven.storyapp.view.adapter.StoryAdapter
@@ -38,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             }
             setupAction(user.token)
         }
-
     }
 
     private fun setupView(token: String) {
@@ -51,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        supportActionBar?.hide()
 
         viewModel.getStories(token).observe(this){ alert ->
             if (alert != null){
@@ -77,14 +78,25 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupAction(token: String) {
-        binding.logoutButton.setOnClickListener {
-            viewModel.logout()
-        }
-
         binding.addStory.setOnClickListener {
             val intent = Intent(this, UploadActivity::class.java)
             intent.putExtra(UploadActivity.EXTRA_TOKEN, token)
             startActivity(intent)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.logoutButton -> {
+                viewModel.logout()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

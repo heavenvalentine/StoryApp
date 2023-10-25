@@ -1,6 +1,7 @@
 package com.heaven.storyapp.view.upload
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.heaven.storyapp.view.camera.getImageUri
 import com.heaven.storyapp.view.camera.reduceFileImage
 import com.heaven.storyapp.view.camera.uriToFile
 import com.heaven.storyapp.view.data.di.AlertIndicator
+import com.heaven.storyapp.view.main.MainActivity
 
 class UploadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
@@ -117,6 +119,7 @@ class UploadActivity : AppCompatActivity() {
                         is AlertIndicator.Success -> {
                             showLoading(false)
                             showToast(result.data.message)
+                            startActivity(Intent(this, MainActivity::class.java))
                         }
 
                         is AlertIndicator.Error -> {
@@ -134,7 +137,7 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     companion object {

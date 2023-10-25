@@ -20,6 +20,7 @@
     <string name="upload">Upload</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
-    <string name="desc">Write your story...</string>
+    <string name="desc">Write your story…</string>
     <string name="error_empty_image">Please insert the image first.</string>
+    <string name="menu_logout_button">Log Out</string>
 </resources>

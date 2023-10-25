@@ -1,8 +1,11 @@
 package com.heaven.storyapp.view.adapter
 
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.heaven.storyapp.R
@@ -35,7 +38,16 @@ class StoryAdapter(private val listOfStory: List<ListStoryItem>, private val tok
                 val intent = Intent(cardView.context, DetailStoryActivity::class.java)
                 intent.putExtra(DetailStoryActivity.EXTRA_ID, story.id)
                 intent.putExtra(DetailStoryActivity.EXTRA_TOKEN, token)
-                cardView.context.startActivity(intent)
+
+                val optionsCompat: ActivityOptionsCompat =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        cardView.context as Activity,
+                        Pair(ivStoryPhoto, "trPhoto"),
+                        Pair(tvStoryTitle, "trTitle"),
+                        Pair(tvItemDescription, "trDesc")
+                    )
+
+                cardView.context.startActivity(intent, optionsCompat.toBundle())
             }
         }
 

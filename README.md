@@ -40,19 +40,13 @@
         [x] Terdapat tombol (R.id.button_add) untuk upload data ke server.
         [x] Setelah tombol tersebut diklik dan proses upload berhasil, maka akan kembali ke halaman daftar cerita.
         [x] Data cerita terbaru harus muncul di paling atas.
-        [] Menampilkan Animasi
-        [] Syarat yang harus dipenuhi sebagai berikut.
-
-[] Membuat animasi pada aplikasi dengan menggunakan salah satu jenis animasi berikut.
-
+        
+    [] Menampilkan Animasi: Membuat animasi pada aplikasi dengan menggunakan salah satu jenis animasi berikut.
     [x] Property Animation
-
     [] Motion Animation
-
     [] Shared Element
-
     [] Tuliskan jenis dan lokasi animasi pada Student Note.
 
 [x] mengganti default error di glide storyadapter
-[] cek lagi bagian layout camera, mau diapus krn pake camera default atau tdk
-[] login register blm di tengah
+[x] cek lagi bagian layout camera, mau diapus krn pake camera default atau tdk
+[x] login register blm di tengah
