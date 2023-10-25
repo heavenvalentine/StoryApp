@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.heaven.storyapp.databinding.ActivityLoginBinding
 import com.heaven.storyapp.view.ViewModelFactory
-import com.heaven.storyapp.view.data.AlertIndicator
+import com.heaven.storyapp.view.data.di.AlertIndicator
 import com.heaven.storyapp.view.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {

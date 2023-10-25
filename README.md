@@ -28,41 +28,24 @@
         [x] Nama user (R.id.tv_item_name)
         [x] Foto  (R.id.iv_item_photo)
 
-[] Muncul tampilan detail ketika salah satu item cerita ditekan. Berikut  minimal informasi yang wajib Anda tampilkan.
+[x] Muncul tampilan detail ketika salah satu item cerita ditekan. Berikut  minimal informasi yang wajib Anda tampilkan.
+    [x] Nama user (R.id.tv_detail_name)
+    [x] Foto (R.id.iv_detail_photo)
+    [x] Deskripsi (R.id.tv_detail_description)
 
-    [] Nama user (R.id.tv_detail_name)
-
-    [] Foto (R.id.iv_detail_photo)
-
-    [] Deskripsi (R.id.tv_detail_description)
-
-    [] Tambah Cerita
-
-    [] Syarat yang harus dipenuhi sebagai berikut.
-
-
-[] Membuat halaman untuk menambah cerita baru yang dapat diakses dari halaman daftar cerita. Berikut input minimal yang dibutuhkan.
-
-    [] File foto (wajib bisa dari gallery)
-
-    [] Deskripsi cerita (R.id.ed_add_description)
-
-    [] Berikut adalah ketentuan dalam menambahkan cerita baru:
-
-    [] Terdapat tombol (R.id.button_add) untuk upload data ke server.
-
-    [] Setelah tombol tersebut diklik dan proses upload berhasil, maka akan kembali ke halaman daftar cerita.
-
-    [] Data cerita terbaru harus muncul di paling atas.
-
-    [] Menampilkan Animasi
-
-    [] Syarat yang harus dipenuhi sebagai berikut.
-
+[x] Tambah Cerita
+    [] Membuat halaman untuk menambah cerita baru yang dapat diakses dari halaman daftar cerita. Berikut input minimal yang dibutuhkan.
+        [x] File foto (wajib bisa dari gallery)
+        [x] Deskripsi cerita (R.id.ed_add_description)
+        [x] Terdapat tombol (R.id.button_add) untuk upload data ke server.
+        [x] Setelah tombol tersebut diklik dan proses upload berhasil, maka akan kembali ke halaman daftar cerita.
+        [x] Data cerita terbaru harus muncul di paling atas.
+        [] Menampilkan Animasi
+        [] Syarat yang harus dipenuhi sebagai berikut.
 
 [] Membuat animasi pada aplikasi dengan menggunakan salah satu jenis animasi berikut.
 
-    [] Property Animation
+    [x] Property Animation
 
     [] Motion Animation
 
@@ -70,4 +53,6 @@
 
     [] Tuliskan jenis dan lokasi animasi pada Student Note.
 
-[] mengganti default error di glide storyadapter
+[x] mengganti default error di glide storyadapter
+[] cek lagi bagian layout camera, mau diapus krn pake camera default atau tdk
+[] login register blm di tengah

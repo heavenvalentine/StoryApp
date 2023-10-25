@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivityDetailBinding
 import com.heaven.storyapp.view.ViewModelFactory
-import com.heaven.storyapp.view.data.AlertIndicator
+import com.heaven.storyapp.view.data.di.AlertIndicator
 
 class DetailStoryActivity: AppCompatActivity() {
 
@@ -66,7 +66,7 @@ class DetailStoryActivity: AppCompatActivity() {
 
                             Glide.with(this@DetailStoryActivity)
                                 .load(alert.data.story.photoUrl)
-                                .error(R.drawable.image_dicoding)
+                                .error(R.drawable.ic_place_holder)
                                 .into(ivStoryPhoto)
                         }
                     }

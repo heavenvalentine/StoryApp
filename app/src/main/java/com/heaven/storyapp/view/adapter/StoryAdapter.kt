@@ -28,7 +28,7 @@ class StoryAdapter(private val listOfStory: List<ListStoryItem>, private val tok
 
             Glide.with(cardView.context)
                 .load(story.photoUrl)
-                .error(R.drawable.image_dicoding)
+                .error(R.drawable.ic_place_holder)
                 .into(ivStoryPhoto)
 
             cardView.setOnClickListener {

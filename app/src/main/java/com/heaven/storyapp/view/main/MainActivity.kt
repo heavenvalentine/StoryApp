@@ -13,8 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.heaven.storyapp.databinding.ActivityMainBinding
 import com.heaven.storyapp.view.ViewModelFactory
 import com.heaven.storyapp.view.adapter.StoryAdapter
-import com.heaven.storyapp.view.data.AlertIndicator
+import com.heaven.storyapp.view.data.di.AlertIndicator
 import com.heaven.storyapp.view.story.response.ListStoryItem
+import com.heaven.storyapp.view.upload.UploadActivity
 import com.heaven.storyapp.view.welcome.WelcomeActivity
 
 class MainActivity : AppCompatActivity() {
@@ -79,6 +80,10 @@ class MainActivity : AppCompatActivity() {
         binding.logoutButton.setOnClickListener {
             viewModel.logout()
         }
-    }
 
+        binding.addStory.setOnClickListener {
+            val intent = Intent(this, UploadActivity::class.java)
+            startActivity(intent)
+        }
+    }
 }

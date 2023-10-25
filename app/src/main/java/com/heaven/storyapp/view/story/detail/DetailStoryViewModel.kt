@@ -1,9 +1,9 @@
 package com.heaven.storyapp.view.story.detail
 
 import androidx.lifecycle.ViewModel
-import com.heaven.storyapp.view.data.UserRepository
+import com.heaven.storyapp.view.data.retrofit.GeneralRepository
 
-class DetailStoryViewModel (private val repository: UserRepository) : ViewModel() {
+class DetailStoryViewModel (private val repository: GeneralRepository) : ViewModel() {
 
     fun getDetailStory(id: String, token: String) = repository.getDetailStory(id, token)
 }

@@ -16,4 +16,10 @@
     <string name="msg_error_password">Password must be at least 8 characters</string>
     <string name="story_title">Story Title</string>
     <string name="description">Description</string>
+    <string name="add_story">add story\n\n</string>
+    <string name="upload">Upload</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="desc">Write your story...</string>
+    <string name="error_empty_image">Please insert the image first.</string>
 </resources>

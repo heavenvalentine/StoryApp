@@ -17,7 +17,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivitySignupBinding
 import com.heaven.storyapp.view.ViewModelFactory
-import com.heaven.storyapp.view.data.AlertIndicator
+import com.heaven.storyapp.view.data.di.AlertIndicator
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
