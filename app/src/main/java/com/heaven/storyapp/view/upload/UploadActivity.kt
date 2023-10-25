@@ -1,7 +1,6 @@
 package com.heaven.storyapp.view.upload
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -19,8 +18,7 @@ import com.heaven.storyapp.view.ViewModelFactory
 import com.heaven.storyapp.view.camera.getImageUri
 import com.heaven.storyapp.view.camera.reduceFileImage
 import com.heaven.storyapp.view.camera.uriToFile
-import com.heaven.storyapp.view.data.di.ResultState
-import com.heaven.storyapp.view.main.MainActivity
+import com.heaven.storyapp.view.data.di.AlertIndicator
 
 class UploadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
@@ -53,13 +51,19 @@ class UploadActivity : AppCompatActivity() {
         binding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val token = intent.getStringExtra(EXTRA_TOKEN)
+
         if (!allPermissionsGranted()) {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
-        binding.uploadButton.setOnClickListener { uploadImage() }
+        binding.uploadButton.setOnClickListener {
+            if (token != null) {
+                uploadImage(token)
+            }
+        }
     }
 
     private fun startGallery() {
@@ -97,29 +101,27 @@ class UploadActivity : AppCompatActivity() {
         }
     }
 
-    private fun uploadImage() {
+    private fun uploadImage(token: String) {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
             val description = binding.tvDesc.text.toString()
 
-            viewModel.uploadImage(imageFile, description).observe(this) { result ->
+            viewModel.uploadImage(token, imageFile, description).observe(this) { result ->
                 if (result != null) {
                     when (result) {
-                        ResultState.Loading -> {
+                        AlertIndicator.Loading -> {
                             showLoading(true)
                         }
 
-                        is ResultState.Success -> {
-                            showToast(result.data.message)
+                        is AlertIndicator.Success -> {
                             showLoading(false)
-                            startActivity(Intent(this, MainActivity::class.java))
-                            finish()
+                            showToast(result.data.message)
                         }
 
-                        is ResultState.Error -> {
-                            showToast(result.error)
+                        is AlertIndicator.Error -> {
                             showLoading(false)
+                            showToast(result.error)
                         }
                     }
                 }
@@ -137,5 +139,6 @@ class UploadActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
+        const val EXTRA_TOKEN = "extra_token"
     }
 }

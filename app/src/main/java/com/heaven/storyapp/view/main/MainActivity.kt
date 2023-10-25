@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
             } else {
                 setupView(user.token)
             }
+            setupAction(user.token)
         }
 
-        setupAction()
     }
 
     private fun setupView(token: String) {
@@ -76,13 +76,14 @@ class MainActivity : AppCompatActivity() {
     private fun triggerRecyclerView(list: List<ListStoryItem>, token: String) : StoryAdapter = StoryAdapter(list, token)
 
 
-    private fun setupAction() {
+    private fun setupAction(token: String) {
         binding.logoutButton.setOnClickListener {
             viewModel.logout()
         }
 
         binding.addStory.setOnClickListener {
             val intent = Intent(this, UploadActivity::class.java)
+            intent.putExtra(UploadActivity.EXTRA_TOKEN, token)
             startActivity(intent)
         }
     }

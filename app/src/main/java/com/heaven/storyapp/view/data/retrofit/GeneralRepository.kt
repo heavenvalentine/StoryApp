@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.google.gson.Gson
 import com.heaven.storyapp.view.data.di.AlertIndicator
-import com.heaven.storyapp.view.data.di.ResultState
 import com.heaven.storyapp.view.data.pref.UserModel
 import com.heaven.storyapp.view.data.pref.UserPreference
 import com.heaven.storyapp.view.login.LoginResponse
@@ -97,8 +96,8 @@ class GeneralRepository private constructor(
         }
     }
 
-    fun uploadImage(imageFile: File, description: String) = liveData {
-        emit(ResultState.Loading)
+    fun uploadImage(token: String, imageFile: File, description: String) : LiveData<AlertIndicator<FileUploadResponse>> = liveData{
+        emit(AlertIndicator.Loading)
         val requestBody = description.toRequestBody("text/plain".toMediaType())
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
         val multipartBody = MultipartBody.Part.createFormData(
@@ -107,12 +106,12 @@ class GeneralRepository private constructor(
             requestImageFile
         )
         try {
-            val successResponse = apiService.uploadImage(multipartBody, requestBody)
-            emit(ResultState.Success(successResponse))
+            val successResponse = apiService.uploadImage("Bearer $token", multipartBody, requestBody)
+            emit(AlertIndicator.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, FileUploadResponse::class.java)
-            emit(ResultState.Error(errorResponse.message))
+            emit(AlertIndicator.Error(errorResponse.message))
         }
     }
 
