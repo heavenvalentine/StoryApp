@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.heaven.storyapp.R
@@ -118,13 +119,34 @@ class UploadActivity : AppCompatActivity() {
 
                         is AlertIndicator.Success -> {
                             showLoading(false)
-                            showToast(result.data.message)
-                            startActivity(Intent(this, MainActivity::class.java))
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Yay!")
+                                setMessage(result.data.message)
+                                setPositiveButton("Ok") { _, _ ->
+                                    val intent = Intent(context, MainActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
                         }
 
                         is AlertIndicator.Error -> {
                             showLoading(false)
-                            showToast(result.error)
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Ups!")
+                                setMessage(result.error)
+                                setPositiveButton("Ok") { _, _ ->
+                                    val intent = Intent(context, MainActivity::class.java)
+                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                create()
+                                show()
+                            }
                         }
                     }
                 }

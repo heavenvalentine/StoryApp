@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Bangkit Story</string>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Rasakan petualangan luar biasa dengan Bangkit dan bagikan cerita inspiratif Anda di Bangkit Story!</string>
+    <string name="title_welcome_page">Selamat datang di Bangkit Story!</string>
+    <string name="title_signup_page">Lengkapi informasi Anda</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="message_login_page">Silakan masukkan data Anda</string>
+    <string name="title_login_page">Apakah Anda siap untuk berbagi perjalanan di Bangkit?</string>
+    <string name="name">Nama</string>
+    <string name="message_main_page">Selamat datang di Bangkit Story.</string>
+    <string name="greeting">Halo, %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="msg_error_password">Kata sandi harus memiliki setidaknya 8 karakter</string>
+    <string name="story_title">Judul Cerita</string>
+    <string name="description">Deskripsi</string>
+    <string name="add_story">Tambahkan cerita\n\n</string>
+    <string name="upload">Unggah</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="desc">Tulis cerita Anda…</string>
+    <string name="error_empty_image">Harap masukkan gambar terlebih dahulu.</string>
+    <string name="menu_logout_button">Keluar</string>
+    <string name="login_successful_message">Berhasil login</string>
+    <string name="login_failed_message">Gagal login</string>
+    <string name="account_ready_message">Akun dengan email $email sudah siap. Ayo mulai login dan bagikan ceritamu.</string>
+    <string name="account_not_ready_message">Ada kesalahan sehingga akun belum bisa dibuat. Silakan coba lagi</string>
+    <string name="no_stories_available">Tidak ada cerita yang tersedia.</string>
+</resources>

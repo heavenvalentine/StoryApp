@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -66,8 +67,15 @@ class MainActivity : AppCompatActivity() {
                     }
                     is AlertIndicator.Success -> {
                         binding.progressBar.isVisible = false
-                        binding.rvStories.layoutManager = LinearLayoutManager(this)
-                        binding.rvStories.adapter = triggerRecyclerView(alert.data.listStory,token)
+
+                        if (alert.data.listStory.isEmpty()) {
+                            binding.noStoriesTextView.visibility = View.VISIBLE
+                            binding.rvStories.isVisible = false
+                        } else {
+                            binding.noStoriesTextView.visibility = View.GONE
+                            binding.rvStories.layoutManager = LinearLayoutManager(this)
+                            binding.rvStories.adapter = triggerRecyclerView(alert.data.listStory,token)
+                        }
                     }
                 }
             }
@@ -90,10 +98,12 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.logoutButton -> {
                 viewModel.logout()
+                finish()
                 return true
             }
         }

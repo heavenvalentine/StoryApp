@@ -40,13 +40,56 @@
         [x] Terdapat tombol (R.id.button_add) untuk upload data ke server.
         [x] Setelah tombol tersebut diklik dan proses upload berhasil, maka akan kembali ke halaman daftar cerita.
         [x] Data cerita terbaru harus muncul di paling atas.
-        
-    [] Menampilkan Animasi: Membuat animasi pada aplikasi dengan menggunakan salah satu jenis animasi berikut.
-    [x] Property Animation
-    [] Motion Animation
-    [] Shared Element
-    [] Tuliskan jenis dan lokasi animasi pada Student Note.
+
+[x] Menampilkan Animasi: Membuat animasi pada aplikasi dengan menggunakan salah satu jenis animasi berikut.
+        [x] Property Animation
+        [x] Motion Animation
 
 [x] mengganti default error di glide storyadapter
 [x] cek lagi bagian layout camera, mau diapus krn pake camera default atau tdk
 [x] login register blm di tengah
+
+
+## Daftar Isi
+- [ ] Membersihkan kode, menghapus komentar, dan kode yang tidak digunakan.
+- [ ] Memastikan indentasi kode yang benar.
+- [ ] Menghapus impor yang tidak digunakan.
+
+## Custom EditText View
+- [ ] Membuat Custom EditText View.
+- [ ] Menerapkan validasi format email dan menampilkan pesan error langsung pada EditText.
+- [ ] Menambahkan opsi untuk mengambil gambar dari kamera saat menambah cerita.
+
+## Alur Pengguna
+- [ ] Pastikan aplikasi hanya berpindah ke layar berikutnya setelah menerima respons berhasil atau gagal:
+    - [x] Setelah login, menekan tombol kembali di layar beranda seharusnya keluar dari aplikasi.
+    - [x] Setelah mengunggah, menekan tombol kembali di layar beranda seharusnya keluar dari aplikasi.
+    - [ ] Setelah logout, menekan tombol kembali seharusnya keluar dari aplikasi.
+
+## Stack Widget
+- [ ] Membuat stack widget untuk menampilkan daftar cerita.
+
+## Lokalisasi
+- [x] Menerapkan dukungan multibahasa (lokalisasi) di aplikasi.
+
+## Interaksi dengan API
+- [x] Menerapkan pesan informatif selama interaksi dengan API:
+    - [x] Tampilkan indikator loading saat memuat data.
+    - [x] Tampilkan pesan error saat permintaan gagal.
+    - [x] Tampilkan pesan informatif saat tidak ada data yang tersedia.
+
+## Komponen Arsitektur Android
+- [x] Menerapkan Komponen Arsitektur Android, termasuk ViewModel dan LiveData, dengan benar di semua halaman dengan logika bisnis.
+
+## Catatan Tambahan
+- [ ] Tambahkan catatan atau detail tambahan yang khusus untuk proyek Anda.
+
+[//]: # (## Kontributor)
+
+[//]: # (- [ ] Daftarkan kontributor proyek jika ada.)
+
+[//]: # ()
+[//]: # (## Lisensi)
+
+[//]: # (- [ ] Pilih dan tentukan lisensi untuk proyek Anda.)
+

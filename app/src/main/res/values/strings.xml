@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Story App</string>
+    <string name="app_name">Bangkit Story</string>
     <string name="signup">Register</string>
     <string name="login">Login</string>
     <string name="message_welcome_page">Experience an extraordinary adventure with Bangkit and share your inspiring stories on the Bangkit Story!</string>
@@ -8,9 +8,9 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="message_login_page">Please enter your data</string>
-    <string name="title_login_page">Are you ready to upgrade your skills?</string>
+    <string name="title_login_page">Are you ready to share your Bangkit journey?</string>
     <string name="name">Name</string>
-    <string name="message_main_page">Welcome to Dicoding Learning.</string>
+    <string name="message_main_page">Welcome to Bangkit Story.</string>
     <string name="greeting">Hello, %1$s,</string>
     <string name="logout">Logout</string>
     <string name="msg_error_password">Password must be at least 8 characters</string>
@@ -23,4 +23,9 @@
     <string name="desc">Write your story…</string>
     <string name="error_empty_image">Please insert the image first.</string>
     <string name="menu_logout_button">Log Out</string>
+    <string name="login_successful_message">Login successful.</string>
+    <string name="login_failed_message">Login failed</string>
+    <string name="account_ready_message">The account with the email $email is ready. Lets login and share your story. </string>
+    <string name="account_not_ready_message">There was an error, so the account cannot be created. Please try again.</string>
+    <string name="no_stories_available">No stories available.</string>
 </resources>

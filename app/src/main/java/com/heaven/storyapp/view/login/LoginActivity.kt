@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivityLoginBinding
 import com.heaven.storyapp.view.ViewModelFactory
 import com.heaven.storyapp.view.data.di.AlertIndicator
@@ -61,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                             binding.progressBar.isVisible = false
                             AlertDialog.Builder(this).apply {
                                 setTitle("Yay!")
-                                setMessage("Login successful.")
+                                setMessage(getString(R.string.login_successful_message))
                                 setPositiveButton("Ok") { _, _ ->
                                     val intent = Intent(context, MainActivity::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -76,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
                             binding.progressBar.isVisible = false
                             AlertDialog.Builder(this).apply {
                                 setTitle("Oops!")
-                                setMessage("Login is not successful. Check your email and password again.")
+                                setMessage(getString(R.string.login_failed_message))
                                 setPositiveButton("Ok") { _, _ ->
                                     finish()
                                 }

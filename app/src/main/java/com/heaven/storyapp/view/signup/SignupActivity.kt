@@ -84,7 +84,7 @@ class SignupActivity : AppCompatActivity() {
                             binding.progressBar.isVisible = false
                             AlertDialog.Builder(this).apply {
                                 setTitle("Yay!")
-                                setMessage("The account with the email $email is ready. Let's log in and share your story.")
+                                setMessage(getString(R.string.account_ready_message))
                                 setPositiveButton("Next") { _, _ ->
                                     finish()
                                 }
@@ -96,7 +96,7 @@ class SignupActivity : AppCompatActivity() {
                             binding.progressBar.isVisible = false
                             AlertDialog.Builder(this).apply {
                                 setTitle("Oops!")
-                                setMessage("The account with the email $email is not ready. Let's try again.")
+                                setMessage(getString(R.string.account_not_ready_message))
                                 setPositiveButton("Ok") { _, _ ->
                                     finish()
                                 }
