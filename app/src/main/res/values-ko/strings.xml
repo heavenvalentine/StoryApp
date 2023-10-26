@@ -36,5 +36,4 @@
     <string name="no_media_selected">미디어가 선택되지 않음</string>
     <string name="image_uri">이미지 URI</string>
     <string name="showimage">이미지 표시: %1$s</string>
-
 </resources>

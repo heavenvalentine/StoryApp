@@ -20,6 +20,7 @@
 
     <TextView
         android:id="@+id/titleTextView"
+        style="@style/FontColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -27,7 +28,6 @@
         android:layout_marginEnd="32dp"
         android:alpha="0"
         android:text="@string/title_signup_page"
-        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +38,13 @@
 
     <TextView
         android:id="@+id/nameTextView"
+        style="@style/FontColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:alpha="0"
         android:text="@string/name"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
         tools:alpha="100" />
@@ -73,13 +73,13 @@
 
     <TextView
         android:id="@+id/emailTextView"
+        style="@style/FontColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:alpha="0"
         android:text="@string/email"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout"
         tools:alpha="100" />
@@ -107,13 +107,13 @@
 
     <TextView
         android:id="@+id/passwordTextView"
+        style="@style/FontColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:alpha="0"
         android:text="@string/password"
-        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"
         tools:alpha="100" />
@@ -146,6 +146,7 @@
 
     <com.heaven.storyapp.view.custom.ButtonEditText
         android:id="@+id/signupButton"
+        style="@style/FontColorInButton"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"

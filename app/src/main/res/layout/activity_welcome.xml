@@ -11,7 +11,6 @@
         android:id="@+id/imageView"
         android:layout_width="346dp"
         android:layout_height="849dp"
-
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +19,7 @@
 
     <TextView
         android:id="@+id/titleTextView"
+        style="@style/FontColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -27,7 +27,6 @@
         android:layout_marginEnd="32dp"
         android:alpha="0"
         android:text="@string/title_welcome_page"
-        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +37,7 @@
 
     <TextView
         android:id="@+id/descTextView"
+        style="@style/FontColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,7 +45,6 @@
         android:layout_marginEnd="32dp"
         android:alpha="0"
         android:text="@string/message_welcome_page"
-        android:textColor="@color/navy"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,6 +54,7 @@
 
     <Button
         android:id="@+id/loginButton"
+        style="@style/FontColorInButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -70,6 +70,7 @@
 
     <Button
         android:id="@+id/signupButton"
+        style="@style/FontColorInButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
