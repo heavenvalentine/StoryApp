@@ -51,23 +51,24 @@
 
 
 ## Daftar Isi
-- [ ] Membersihkan kode, menghapus komentar, dan kode yang tidak digunakan.
-- [ ] Memastikan indentasi kode yang benar.
-- [ ] Menghapus impor yang tidak digunakan.
+- [x] Membersihkan kode, menghapus komentar, dan kode yang tidak digunakan.
+- [x] Memastikan indentasi kode yang benar.
+- [x] Menghapus impor yang tidak digunakan.
 
 ## Custom EditText View
-- [ ] Membuat Custom EditText View.
-- [ ] Menerapkan validasi format email dan menampilkan pesan error langsung pada EditText.
-- [ ] Menambahkan opsi untuk mengambil gambar dari kamera saat menambah cerita.
+- [x] Membuat Custom EditText View.
+- [x] Menerapkan validasi format email dan menampilkan pesan error langsung pada EditText.
+
 
 ## Alur Pengguna
-- [ ] Pastikan aplikasi hanya berpindah ke layar berikutnya setelah menerima respons berhasil atau gagal:
+- [x] Pastikan aplikasi hanya berpindah ke layar berikutnya setelah menerima respons berhasil atau gagal:
     - [x] Setelah login, menekan tombol kembali di layar beranda seharusnya keluar dari aplikasi.
     - [x] Setelah mengunggah, menekan tombol kembali di layar beranda seharusnya keluar dari aplikasi.
-    - [ ] Setelah logout, menekan tombol kembali seharusnya keluar dari aplikasi.
+    - [x] Setelah logout, menekan tombol kembali seharusnya keluar dari aplikasi.
 
-## Stack Widget
-- [ ] Membuat stack widget untuk menampilkan daftar cerita.
+[//]: # (## Stack Widget)
+
+[//]: # (- [ ] Membuat stack widget untuk menampilkan daftar cerita.)
 
 ## Lokalisasi
 - [x] Menerapkan dukungan multibahasa (lokalisasi) di aplikasi.
@@ -81,8 +82,9 @@
 ## Komponen Arsitektur Android
 - [x] Menerapkan Komponen Arsitektur Android, termasuk ViewModel dan LiveData, dengan benar di semua halaman dengan logika bisnis.
 
-## Catatan Tambahan
-- [ ] Tambahkan catatan atau detail tambahan yang khusus untuk proyek Anda.
+[//]: # (## Catatan Tambahan)
+
+[//]: # (- [ ] Tambahkan catatan atau detail tambahan yang khusus untuk proyek Anda.)
 
 [//]: # (## Kontributor)
 

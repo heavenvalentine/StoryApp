@@ -42,7 +42,9 @@ class SignupActivity : AppCompatActivity() {
                     binding.passwordEditText.error = null
                     binding.signupButton.isEnabled = true
                     binding.passwordEditTextLayout.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
-                } else {
+                } else if(s.isEmpty()){
+                    binding.passwordEditText.error = getString(R.string.required)
+                } else{
                     binding.passwordEditText.error = getString(R.string.msg_error_password)
                     binding.signupButton.isEnabled = false
                     binding.passwordEditTextLayout.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
@@ -53,6 +55,7 @@ class SignupActivity : AppCompatActivity() {
                 setupAction()
             }
         })
+
     }
 
     private fun setupView() {

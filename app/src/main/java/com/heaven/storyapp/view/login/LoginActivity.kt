@@ -79,7 +79,9 @@ class LoginActivity : AppCompatActivity() {
                                 setTitle("Oops!")
                                 setMessage(getString(R.string.login_failed_message))
                                 setPositiveButton("Ok") { _, _ ->
-                                    finish()
+                                    binding.emailEditText.text?.clear()
+                                    binding.passwordEditText.text?.clear()
+                                    binding.emailEditText.requestFocus()
                                 }
                                 create()
                                 show()

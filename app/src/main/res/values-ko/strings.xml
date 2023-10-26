@@ -28,4 +28,6 @@
     <string name="account_ready_message">이메일 주소 $email 로 계정이 준비되었습니다. 로그인하여 이야기를 공유하세요.</string>
     <string name="account_not_ready_message">오류가 발생하여 계정을 생성할 수 없습니다. 다시 시도해주세요.</string>
     <string name="no_stories_available">이야기가 없습니다.</string>
+    <string name="msg_error_email">이메일 형식이 잘못되었습니다.</string>
+    <string name="required">필수 입력</string>
 </resources>

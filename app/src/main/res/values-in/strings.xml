@@ -28,4 +28,6 @@
     <string name="account_ready_message">Akun dengan email $email sudah siap. Ayo mulai login dan bagikan ceritamu.</string>
     <string name="account_not_ready_message">Ada kesalahan sehingga akun belum bisa dibuat. Silakan coba lagi</string>
     <string name="no_stories_available">Tidak ada cerita yang tersedia.</string>
+    <string name="msg_error_email">Format email salah.</string>
+    <string name="required">Perlu diisi</string>
 </resources>

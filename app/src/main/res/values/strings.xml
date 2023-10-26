@@ -28,4 +28,6 @@
     <string name="account_ready_message">The account with the email $email is ready. Lets login and share your story. </string>
     <string name="account_not_ready_message">There was an error, so the account cannot be created. Please try again.</string>
     <string name="no_stories_available">No stories available.</string>
+    <string name="msg_error_email">Invalid email format</string>
+    <string name="required">Required</string>
 </resources>
