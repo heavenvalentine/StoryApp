@@ -26,13 +26,7 @@ class NameEditText: AppCompatEditText {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                error =
-                  if (s.isEmpty()){
-                        context.getString(R.string.required)
-                    }
-                    else{
-                        null
-                    }
+                error = if (s.isEmpty()) context.getString(R.string.required) else null
             }
 
             override fun afterTextChanged(s: Editable) {

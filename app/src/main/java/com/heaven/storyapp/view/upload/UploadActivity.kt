@@ -37,9 +37,11 @@ class UploadActivity : AppCompatActivity() {
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
-                Toast.makeText(this, "Permission request granted", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,
+                    getString(R.string.permission_request_granted), Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "Permission request denied", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,
+                    getString(R.string.permission_request_denied), Toast.LENGTH_LONG).show()
             }
         }
 
@@ -80,7 +82,7 @@ class UploadActivity : AppCompatActivity() {
             currentImageUri = uri
             showImage()
         } else {
-            Log.d("Photo Picker", "No media selected")
+            Log.d(getString(R.string.photo_picker), getString(R.string.no_media_selected))
         }
     }
 
@@ -99,7 +101,7 @@ class UploadActivity : AppCompatActivity() {
 
     private fun showImage() {
         currentImageUri?.let {
-            Log.d("Image URI", "showImage: $it")
+            Log.d(getString(R.string.image_uri), getString(R.string.showimage, it))
             binding.previewImageView.setImageURI(it)
         }
     }

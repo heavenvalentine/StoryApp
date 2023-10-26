@@ -25,9 +25,15 @@
     <string name="menu_logout_button">Log Out</string>
     <string name="login_successful_message">Login successful.</string>
     <string name="login_failed_message">Login failed</string>
-    <string name="account_ready_message">The account with the email $email is ready. Lets login and share your story. </string>
+    <string name="account_ready_message">Your account is ready. Lets login and share your story. </string>
     <string name="account_not_ready_message">There was an error, so the account cannot be created. Please try again.</string>
     <string name="no_stories_available">No stories available.</string>
     <string name="msg_error_email">Invalid email format</string>
     <string name="required">Required</string>
+    <string name="permission_request_granted">Permission request granted</string>
+    <string name="permission_request_denied">Permission request denied</string>
+    <string name="photo_picker">Photo Picker</string>
+    <string name="no_media_selected">No media selected</string>
+    <string name="image_uri">Image URI</string>
+    <string name="showimage">showImage: %1$s</string>
 </resources>

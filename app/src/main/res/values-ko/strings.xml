@@ -25,9 +25,16 @@
     <string name="menu_logout_button">로그아웃</string>
     <string name="login_successful_message">로그인 성공.</string>
     <string name="login_failed_message">로그인에 실패했습니다. 이메일과 비밀번호를 다시 확인해주세요.</string>
-    <string name="account_ready_message">이메일 주소 $email 로 계정이 준비되었습니다. 로그인하여 이야기를 공유하세요.</string>
+    <string name="account_ready_message">이메일 주소 로 계정이 준비되었습니다. 로그인하여 이야기를 공유하세요.</string>
     <string name="account_not_ready_message">오류가 발생하여 계정을 생성할 수 없습니다. 다시 시도해주세요.</string>
     <string name="no_stories_available">이야기가 없습니다.</string>
     <string name="msg_error_email">이메일 형식이 잘못되었습니다.</string>
     <string name="required">필수 입력</string>
+    <string name="permission_request_granted">권한 요청 승인됨</string>
+    <string name="permission_request_denied">권한 요청 거부됨</string>
+    <string name="photo_picker">사진 선택기</string>
+    <string name="no_media_selected">미디어가 선택되지 않음</string>
+    <string name="image_uri">이미지 URI</string>
+    <string name="showimage">이미지 표시: %1$s</string>
+
 </resources>

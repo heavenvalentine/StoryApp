@@ -39,14 +39,14 @@ class SignupActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.toString().length >= 8) {
-                    binding.passwordEditText.error = null
                     binding.signupButton.isEnabled = true
+                    binding.passwordEditText.error = null
                     binding.passwordEditTextLayout.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
                 } else if(s.isEmpty()){
+                    binding.signupButton.isEnabled = false
                     binding.passwordEditText.error = getString(R.string.required)
                 } else{
-                    binding.passwordEditText.error = getString(R.string.msg_error_password)
-                    binding.signupButton.isEnabled = false
+                    binding.passwordEditText.setError(getString(R.string.msg_error_password),null)
                     binding.passwordEditTextLayout.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
                 }
             }
@@ -55,7 +55,6 @@ class SignupActivity : AppCompatActivity() {
                 setupAction()
             }
         })
-
     }
 
     private fun setupView() {
@@ -101,7 +100,10 @@ class SignupActivity : AppCompatActivity() {
                                 setTitle("Oops!")
                                 setMessage(getString(R.string.account_not_ready_message))
                                 setPositiveButton("Ok") { _, _ ->
-                                    finish()
+                                    binding.nameEditText.text?.clear()
+                                    binding.emailEditText.text?.clear()
+                                    binding.passwordEditText.text?.clear()
+                                    binding.nameEditText.requestFocus()
                                 }
                                 create()
                                 show()

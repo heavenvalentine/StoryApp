@@ -5,13 +5,13 @@
     <style name="Theme.StoryApp" parent="Base.Theme.StoryApp" />
 
     <style name="Title">
-        <item name="android:textColor">@color/darker_Grey</item>
+        <item name="android:textColor">@color/darker_grey</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:color">@color/darker_Grey</item>
+        <item name="android:color">@color/darker_grey</item>
     </style>
 
     <style name="Description">
@@ -23,7 +23,7 @@
     </style>
 
     <style name="FontColor">
-        <item name="android:textColor">@color/darker_Grey</item>
+        <item name="android:textColor">@color/darker_grey</item>
     </style>
 
 </resources>

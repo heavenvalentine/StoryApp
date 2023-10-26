@@ -27,19 +27,13 @@ class PasswordEditText: AppCompatEditText {
                 }
 
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                    if(s.toString().length < 8) {
-                        error = context.getString(R.string.msg_error_password)
-                    }
-                    else {
-                        error = null
-                    }
+                    val passwordError = if (s.toString().length < 8) context.getString(R.string.msg_error_password) else null
+                    val emailError = if (id == R.id.emailEditText && !isValidEmail(s.toString())) context.getString(R.string.msg_error_email) else null
 
-                    if (id == R.id.emailEditText) {
-                        if (!isValidEmail(s.toString())) {
-                            error = context.getString(R.string.msg_error_email)
-                        } else {
-                            error = null
-                        }
+                    error = when {
+                        passwordError != null -> passwordError
+                        emailError != null -> emailError
+                        else -> null
                     }
                 }
 

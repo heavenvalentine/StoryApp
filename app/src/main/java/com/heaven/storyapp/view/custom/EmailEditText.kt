@@ -4,7 +4,6 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Patterns
 import androidx.appcompat.widget.AppCompatEditText
 import com.heaven.storyapp.R
 
@@ -27,16 +26,11 @@ class EmailEditText: AppCompatEditText {
                 }
 
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                    error =
-                        if (!isValidEmail(s.toString())) {
-                        context.getString(R.string.msg_error_email)
-                        }
-                        else if (s.isEmpty()){
-                            context.getString(R.string.required)
-                        }
-                        else{
-                            null
-                        }
+                    error = when {
+                        s.isEmpty() -> context.getString(R.string.required)
+                        !isValidEmail(s.toString()) -> context.getString(R.string.msg_error_email)
+                        else -> null
+                    }
                 }
 
                 override fun afterTextChanged(s: Editable) {
@@ -44,8 +38,6 @@ class EmailEditText: AppCompatEditText {
             })
         }
 
-    private fun isValidEmail(email: String): Boolean {
-        val pattern = Patterns.EMAIL_ADDRESS
-        return pattern.matcher(email).matches()
-    }
+    private fun isValidEmail(email: String): Boolean = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+
 }
