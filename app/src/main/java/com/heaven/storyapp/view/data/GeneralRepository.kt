@@ -1,4 +1,4 @@
-package com.heaven.storyapp.view.data.retrofit
+package com.heaven.storyapp.view.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
@@ -6,10 +6,12 @@ import com.google.gson.Gson
 import com.heaven.storyapp.view.data.di.AlertIndicator
 import com.heaven.storyapp.view.data.pref.UserModel
 import com.heaven.storyapp.view.data.pref.UserPreference
-import com.heaven.storyapp.view.login.LoginResponse
-import com.heaven.storyapp.view.signup.SignUpResponse
-import com.heaven.storyapp.view.story.response.DetailStoryResponse
-import com.heaven.storyapp.view.story.response.StoryResponse
+import com.heaven.storyapp.view.data.retrofit.ApiService
+import com.heaven.storyapp.view.data.retrofit.response.DetailStoryResponse
+import com.heaven.storyapp.view.data.retrofit.response.FileUploadResponse
+import com.heaven.storyapp.view.data.retrofit.response.LoginResponse
+import com.heaven.storyapp.view.data.retrofit.response.SignUpResponse
+import com.heaven.storyapp.view.data.retrofit.response.StoryResponse
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -23,7 +25,7 @@ class GeneralRepository private constructor(
     private val userPreference: UserPreference
 ) {
 
-    suspend fun saveSession(user: UserModel) {
+    private suspend fun saveSession(user: UserModel) {
         userPreference.saveSession(user)
     }
 
@@ -85,6 +87,21 @@ class GeneralRepository private constructor(
         emit(AlertIndicator.Loading)
         try {
             val response = apiService.getDetailStory(id,"Bearer $token")
+            if (response.error){
+                emit(AlertIndicator.Error(response.message))
+            }
+            else {
+                emit(AlertIndicator.Success(response))
+            }
+        } catch (e:Exception){
+            emit(AlertIndicator.Error(e.message.toString()))
+        }
+    }
+
+    fun getStoriesWithLocation(token: String): LiveData<AlertIndicator<StoryResponse>> = liveData{
+        emit(AlertIndicator.Loading)
+        try {
+            val response = apiService.getStoriesWithLocation("Bearer $token")
             if (response.error){
                 emit(AlertIndicator.Error(response.message))
             }

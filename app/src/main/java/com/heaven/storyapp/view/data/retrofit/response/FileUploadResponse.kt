@@ -1,4 +1,4 @@
-package com.heaven.storyapp.view.data.retrofit
+package com.heaven.storyapp.view.data.retrofit.response
 
 import com.google.gson.annotations.SerializedName
 

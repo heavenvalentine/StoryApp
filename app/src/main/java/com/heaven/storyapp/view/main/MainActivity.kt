@@ -18,7 +18,8 @@ import com.heaven.storyapp.databinding.ActivityMainBinding
 import com.heaven.storyapp.view.ViewModelFactory
 import com.heaven.storyapp.view.adapter.StoryAdapter
 import com.heaven.storyapp.view.data.di.AlertIndicator
-import com.heaven.storyapp.view.story.response.ListStoryItem
+import com.heaven.storyapp.view.data.retrofit.response.ListStoryItem
+import com.heaven.storyapp.view.map.MapActivity
 import com.heaven.storyapp.view.upload.UploadActivity
 import com.heaven.storyapp.view.welcome.WelcomeActivity
 
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(this)
     }
     private lateinit var binding: ActivityMainBinding
+    private var token: String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()
             } else {
+                token = user.token
                 setupView(user.token)
             }
             setupAction(user.token)
@@ -105,6 +108,11 @@ class MainActivity : AppCompatActivity() {
                 viewModel.logout()
                 finish()
                 return true
+            }
+            R.id.mapButton -> {
+                val intent = Intent(this, MapActivity::class.java)
+                intent.putExtra(MapActivity.EXTRA_TOKEN, token)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

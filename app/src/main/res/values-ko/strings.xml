@@ -36,4 +36,12 @@
     <string name="no_media_selected">미디어가 선택되지 않음</string>
     <string name="image_uri">이미지 URI</string>
     <string name="showimage">이미지 표시: %1$s</string>
+
+    <string name="menu_map_button">지도 버튼\n</string>
+    <string name="title_activity_maps">지도 활동</string>
+    <string name="title_activity_map">지도 활동</string>
+    <string name="normal_type">일반</string>
+    <string name="satellite_type">위성</string>
+    <string name="terrain_type">지형</string>
+    <string name="hybrid_type">하이브리드</string>
 </resources>

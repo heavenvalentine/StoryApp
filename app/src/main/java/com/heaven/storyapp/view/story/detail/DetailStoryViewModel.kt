@@ -1,7 +1,7 @@
 package com.heaven.storyapp.view.story.detail
 
 import androidx.lifecycle.ViewModel
-import com.heaven.storyapp.view.data.retrofit.GeneralRepository
+import com.heaven.storyapp.view.data.GeneralRepository
 
 class DetailStoryViewModel (private val repository: GeneralRepository) : ViewModel() {
 

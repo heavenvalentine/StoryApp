@@ -1,7 +1,7 @@
 package com.heaven.storyapp.view.upload
 
 import androidx.lifecycle.ViewModel
-import com.heaven.storyapp.view.data.retrofit.GeneralRepository
+import com.heaven.storyapp.view.data.GeneralRepository
 import java.io.File
 
 class UploadViewModel(private val repository: GeneralRepository) : ViewModel() {

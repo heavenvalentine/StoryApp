@@ -1,9 +1,10 @@
 package com.heaven.storyapp.view.data.retrofit
 
-import com.heaven.storyapp.view.login.LoginResponse
-import com.heaven.storyapp.view.signup.SignUpResponse
-import com.heaven.storyapp.view.story.response.DetailStoryResponse
-import com.heaven.storyapp.view.story.response.StoryResponse
+import com.heaven.storyapp.view.data.retrofit.response.DetailStoryResponse
+import com.heaven.storyapp.view.data.retrofit.response.FileUploadResponse
+import com.heaven.storyapp.view.data.retrofit.response.LoginResponse
+import com.heaven.storyapp.view.data.retrofit.response.SignUpResponse
+import com.heaven.storyapp.view.data.retrofit.response.StoryResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Field
@@ -14,6 +15,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     @FormUrlEncoded
@@ -34,6 +36,8 @@ interface ApiService {
     @GET("stories")
     suspend fun getStories(
         @Header("Authorization") token: String,
+        @Query("page") page: Int = 1,
+        @Query("size") size: Int = 20,
     ): StoryResponse
 
     @GET("stories/{id}")
@@ -42,13 +46,20 @@ interface ApiService {
         @Header("Authorization") token: String
     ): DetailStoryResponse
 
-
     @Multipart
     @POST("stories")
     suspend fun uploadImage(
         @Header("Authorization") token: String,
         @Part file: MultipartBody.Part,
         @Part("description") description: RequestBody
-
     ): FileUploadResponse
+
+    @GET("stories")
+    suspend fun getStoriesWithLocation(
+        @Header("Authorization") token: String,
+        @Query("location") location : Int = 1,
+    ): StoryResponse
+
 }
+
+

@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ItemRowStoryBinding
+import com.heaven.storyapp.view.data.retrofit.response.ListStoryItem
 import com.heaven.storyapp.view.story.detail.DetailStoryActivity
-import com.heaven.storyapp.view.story.response.ListStoryItem
 
 class StoryAdapter(private val listOfStory: List<ListStoryItem>, private val token: String) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
 

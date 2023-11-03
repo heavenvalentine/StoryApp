@@ -37,4 +37,12 @@
     <string name="image_uri">URI Gambar</string>
     <string name="showimage">Tampilkan Gambar: %1$s</string>
 
+    <string name="menu_map_button">Tombol Peta\n</string>
+    <string name="title_activity_maps">Aktivitas Peta</string>
+    <string name="title_activity_map">Aktivitas Peta</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satelit</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hibrida</string>
+
 </resources>

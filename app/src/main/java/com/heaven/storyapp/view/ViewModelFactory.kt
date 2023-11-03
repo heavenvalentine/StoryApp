@@ -3,10 +3,11 @@ package com.heaven.storyapp.view
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.heaven.storyapp.view.data.GeneralRepository
 import com.heaven.storyapp.view.data.di.Injection
-import com.heaven.storyapp.view.data.retrofit.GeneralRepository
 import com.heaven.storyapp.view.login.LoginViewModel
 import com.heaven.storyapp.view.main.MainViewModel
+import com.heaven.storyapp.view.map.MapViewModel
 import com.heaven.storyapp.view.signup.SignUpViewModel
 import com.heaven.storyapp.view.story.detail.DetailStoryViewModel
 import com.heaven.storyapp.view.upload.UploadViewModel
@@ -31,7 +32,9 @@ class ViewModelFactory(private val repository: GeneralRepository) : ViewModelPro
             modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
                 UploadViewModel(repository) as T
             }
-
+            modelClass.isAssignableFrom(MapViewModel::class.java) -> {
+                MapViewModel(repository) as T
+            }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

@@ -35,5 +35,13 @@
     <string name="photo_picker">Photo Picker</string>
     <string name="no_media_selected">No media selected</string>
     <string name="image_uri">Image URI</string>
+
     <string name="showimage">showImage: %1$s</string>
+    <string name="menu_map_button">Map Button\n</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
 </resources>
