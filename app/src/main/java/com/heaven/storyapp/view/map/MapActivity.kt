@@ -1,7 +1,9 @@
 package com.heaven.storyapp.view.map
 
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
 import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivityMapBinding
@@ -61,6 +64,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
         getMyLocation()
         addManyMarkers(token.toString())
+        setMapStyle()
     }
 
     private fun addManyMarkers(token: String) {
@@ -141,7 +145,20 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    private fun setMapStyle() {
+        try {
+            val success =
+                mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.")
+            }
+        } catch (exception: Resources.NotFoundException) {
+            Log.e(TAG, "Can't find style. Error: ", exception)
+        }
+    }
+
     companion object {
         const val EXTRA_TOKEN: String = "extra_token"
+        private const val TAG = "MapsActivity"
     }
 }
