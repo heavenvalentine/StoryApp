@@ -44,4 +44,6 @@
     <string name="satellite_type">위성</string>
     <string name="terrain_type">지형</string>
     <string name="hybrid_type">하이브리드</string>
+    <string name="retry">다시 시도</string>
+    <string name="timeout">시간 초과</string>
 </resources>

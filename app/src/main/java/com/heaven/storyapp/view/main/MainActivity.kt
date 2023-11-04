@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.heaven.storyapp.R
 import com.heaven.storyapp.databinding.ActivityMainBinding
 import com.heaven.storyapp.view.ViewModelFactory
+import com.heaven.storyapp.view.adapter.LoadingStateAdapter
 import com.heaven.storyapp.view.adapter.StoryAdapter
 import com.heaven.storyapp.view.data.di.AlertIndicator
-import com.heaven.storyapp.view.data.retrofit.response.ListStoryItem
 import com.heaven.storyapp.view.map.MapActivity
 import com.heaven.storyapp.view.upload.UploadActivity
 import com.heaven.storyapp.view.welcome.WelcomeActivity
@@ -77,16 +77,22 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             binding.noStoriesTextView.visibility = View.GONE
                             binding.rvStories.layoutManager = LinearLayoutManager(this)
-                            binding.rvStories.adapter = triggerRecyclerView(alert.data.listStory,token)
+
+                            val adapter = StoryAdapter(token)
+                            binding.rvStories.adapter = adapter.withLoadStateFooter(
+                                footer = LoadingStateAdapter {
+                                    adapter.retry()
+                                }
+                            )
+                            viewModel.getPagedStories(token).observe(this) {
+                                adapter.submitData(lifecycle, it)
+                            }
                         }
                     }
                 }
             }
         }
     }
-
-    private fun triggerRecyclerView(list: List<ListStoryItem>, token: String) : StoryAdapter = StoryAdapter(list, token)
-
 
     private fun setupAction(token: String) {
         binding.addStory.setOnClickListener {

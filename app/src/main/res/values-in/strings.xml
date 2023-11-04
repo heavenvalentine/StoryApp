@@ -44,5 +44,6 @@
     <string name="satellite_type">Satelit</string>
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hibrida</string>
-
+    <string name="retry">Ulang</string>
+    <string name="timeout">Waktu Habis</string>
 </resources>

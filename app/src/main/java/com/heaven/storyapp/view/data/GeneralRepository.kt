@@ -2,6 +2,10 @@ package com.heaven.storyapp.view.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
 import com.google.gson.Gson
 import com.heaven.storyapp.view.data.di.AlertIndicator
 import com.heaven.storyapp.view.data.pref.UserModel
@@ -9,6 +13,7 @@ import com.heaven.storyapp.view.data.pref.UserPreference
 import com.heaven.storyapp.view.data.retrofit.ApiService
 import com.heaven.storyapp.view.data.retrofit.response.DetailStoryResponse
 import com.heaven.storyapp.view.data.retrofit.response.FileUploadResponse
+import com.heaven.storyapp.view.data.retrofit.response.ListStoryItem
 import com.heaven.storyapp.view.data.retrofit.response.LoginResponse
 import com.heaven.storyapp.view.data.retrofit.response.SignUpResponse
 import com.heaven.storyapp.view.data.retrofit.response.StoryResponse
@@ -131,6 +136,18 @@ class GeneralRepository private constructor(
             emit(AlertIndicator.Error(errorResponse.message))
         }
     }
+
+    fun getStoryPaging(token: String): LiveData<PagingData<ListStoryItem>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = 20
+            ),
+            pagingSourceFactory = {
+                StoryPagingSource(apiService, token)
+            }
+        ).liveData
+    }
+
 
     companion object {
         @Volatile

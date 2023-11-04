@@ -59,7 +59,6 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Query("location") location : Int = 1,
     ): StoryResponse
-
 }
 
 
