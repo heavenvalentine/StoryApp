@@ -11,7 +11,7 @@
     [x] Menampilkan list story dengan menggunakan Paging 3 dengan benar.
 
 ## Membuat Testing
-    []Menerapkan unit test pada fungsi di dalam ViewModel yang mengambil list data Paging.
+    [x]Menerapkan unit test pada fungsi di dalam ViewModel yang mengambil list data Paging.
         Ketika berhasil memuat data cerita.
         []Memastikan data tidak null.
         []Memastikan jumlah data sesuai dengan yang diharapkan.
@@ -20,26 +20,20 @@
         []Memastikan jumlah data yang dikembalikan nol.
 
 ## Saran
-[] Menuliskan kode dengan bersih.
-[] Bersihkan comment dan kode yang tidak digunakan.
-[] Indentasi yang sesuai.
-[] Menghapus import yang tidak digunakan.
-[] Menambahkan informasi selama proses interaksi dengan API:
-[] Loading ketika memuat data
-[] Informasi error ketika gagal
-[] Pesan informasi ketika tidak ada data
+[x] Menuliskan kode dengan bersih.
+[x] Bersihkan comment dan kode yang tidak digunakan.
+[x] Indentasi yang sesuai.
+[x] Menghapus import yang tidak digunakan.
+[x] Menambahkan informasi selama proses interaksi dengan API:
+[x] Loading ketika memuat data
+[x] Informasi error ketika gagal
+[x] Pesan informasi ketika tidak ada data
 [x] Menggunakan custom map style tersendiri pada Google Maps.
-[] Menggunakan Paging 3 dengan menggunakan RemoteMediator.
-[] Menambahkan input lokasi saat ini dari GPS yang bersifat opsional (gunakan checkbox atau switch) ketika tambah cerita.
-[] Menerapkan Android Architecture Component (minimal ViewModel dan LiveData) dengan benar di semua halaman yang mengandung business logic.
-[] Menerapkan UI test dan idling resources untuk salah satu skenario berikut.
-  [] Memastikan mekanisme proses login dan logout.
-  [] Memastikan mekanisme proses tambah cerita.
+[x] Menggunakan Paging 3 dengan menggunakan RemoteMediator.
 
 [x] Menampilkan halaman login untuk masuk ke dalam aplikasi
 [x] Email (R.id.ed_login_email)
 [x] Password (R.id.ed_login_password)
-
 
 [x] Membuat halaman register untuk mendaftarkan diri dalam aplikasi. Berikut input yang dibutuhkan.
 [x] Nama (R.id.ed_register_name)
@@ -68,7 +62,7 @@
 [x] Deskripsi (R.id.tv_detail_description)
 
 [x] Tambah Cerita
-[] Membuat halaman untuk menambah cerita baru yang dapat diakses dari halaman daftar cerita. Berikut input minimal yang dibutuhkan.
+Membuat halaman untuk menambah cerita baru yang dapat diakses dari halaman daftar cerita. Berikut input minimal yang dibutuhkan.
 [x] File foto (wajib bisa dari gallery)
 [x] Deskripsi cerita (R.id.ed_add_description)
 [x] Terdapat tombol (R.id.button_add) untuk upload data ke server.
@@ -117,4 +111,3 @@
 - [x] Tambahkan catatan atau detail tambahan yang khusus untuk proyek Anda.
 
 
-Fitur yang harus ada pada aplikasi.
