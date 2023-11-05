@@ -49,4 +49,5 @@
     <string name="add_gps">Tambahkan Lokasi GPS</string>
     <string name="failed_to_get_location">Gagal mendapatkan lokasi</string>
     <string name="empty_image_warning">Gambar tidak dapat diakses</string>
+    <string name="style_parsing_failed">Gagal memproses style.</string>
 </resources>

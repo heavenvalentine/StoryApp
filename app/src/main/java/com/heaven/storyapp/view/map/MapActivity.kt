@@ -3,7 +3,6 @@ package com.heaven.storyapp.view.map
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -139,18 +138,17 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun setMapStyle() {
         try {
-            val success =
-                mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
+            val success = mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
             if (!success) {
-                Log.e(TAG, "Style parsing failed.")
+                Toast.makeText(this, getString(R.string.style_parsing_failed), Toast.LENGTH_SHORT).show()
             }
         } catch (exception: Resources.NotFoundException) {
-            Log.e(TAG, "Can't find style. Error: ", exception)
+            Toast.makeText(this, "Can't find style. Error: ${exception.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
+
     companion object {
         const val EXTRA_TOKEN: String = "extra_token"
-        private const val TAG = "MapsActivity"
     }
 }
