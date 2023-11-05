@@ -19,6 +19,7 @@
         []Ketika tidak ada data cerita.
         []Memastikan jumlah data yang dikembalikan nol.
 
+## Saran
 [] Menuliskan kode dengan bersih.
 [] Bersihkan comment dan kode yang tidak digunakan.
 [] Indentasi yang sesuai.
@@ -27,13 +28,13 @@
 [] Loading ketika memuat data
 [] Informasi error ketika gagal
 [] Pesan informasi ketika tidak ada data
-[] Menggunakan custom map style tersendiri pada Google Maps.
+[x] Menggunakan custom map style tersendiri pada Google Maps.
 [] Menggunakan Paging 3 dengan menggunakan RemoteMediator.
 [] Menambahkan input lokasi saat ini dari GPS yang bersifat opsional (gunakan checkbox atau switch) ketika tambah cerita.
 [] Menerapkan Android Architecture Component (minimal ViewModel dan LiveData) dengan benar di semua halaman yang mengandung business logic.
 [] Menerapkan UI test dan idling resources untuk salah satu skenario berikut.
-[] Memastikan mekanisme proses login dan logout.
-[] Memastikan mekanisme proses tambah cerita.
+  [] Memastikan mekanisme proses login dan logout.
+  [] Memastikan mekanisme proses tambah cerita.
 
 [x] Menampilkan halaman login untuk masuk ke dalam aplikasi
 [x] Email (R.id.ed_login_email)

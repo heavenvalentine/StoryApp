@@ -46,4 +46,7 @@
     <string name="hybrid_type">Hybrid</string>
     <string name="retry">Retry</string>
     <string name="timeout">Timeout</string>
+    <string name="add_gps">Add GPS location</string>
+    <string name="failed_to_get_location">Location unreachable\n</string>
+    <string name="empty_image_warning">Image unreachable.</string>
 </resources>

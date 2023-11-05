@@ -79,6 +79,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                         binding.progressBar.isVisible = true
                     }
                     is AlertIndicator.Success -> {
+                        binding.progressBar.isVisible = false
                         alert.data.listStory.forEach { data ->
                             if( data.lon != null && data.lat != null)
                             {

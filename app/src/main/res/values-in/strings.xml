@@ -46,4 +46,7 @@
     <string name="hybrid_type">Hibrida</string>
     <string name="retry">Ulang</string>
     <string name="timeout">Waktu Habis</string>
+    <string name="add_gps">Tambahkan Lokasi GPS</string>
+    <string name="failed_to_get_location">Gagal mendapatkan lokasi</string>
+    <string name="empty_image_warning">Gambar tidak dapat diakses</string>
 </resources>
