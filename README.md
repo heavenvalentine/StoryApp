@@ -13,11 +13,11 @@
 ## Membuat Testing
     [x]Menerapkan unit test pada fungsi di dalam ViewModel yang mengambil list data Paging.
         Ketika berhasil memuat data cerita.
-        []Memastikan data tidak null.
-        []Memastikan jumlah data sesuai dengan yang diharapkan.
-        []Memastikan data pertama yang dikembalikan sesuai.
-        []Ketika tidak ada data cerita.
-        []Memastikan jumlah data yang dikembalikan nol.
+        [x]Memastikan data tidak null.
+        [x]Memastikan jumlah data sesuai dengan yang diharapkan.
+        [x]Memastikan data pertama yang dikembalikan sesuai.
+        [x]Ketika tidak ada data cerita.
+        [x]Memastikan jumlah data yang dikembalikan nol.
 
 ## Saran
 [x] Menuliskan kode dengan bersih.
