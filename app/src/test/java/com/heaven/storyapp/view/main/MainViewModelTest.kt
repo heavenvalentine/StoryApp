@@ -47,7 +47,7 @@ class MainViewModelTest {
         expectedStory.value = data
         Mockito.`when`(storyRepository.getStoryPaging(token)).thenReturn(expectedStory)
 
-        mainViewModel = MainViewModel(storyRepository)
+        val mainViewModel = MainViewModel(storyRepository)
         val actualStory: PagingData<ListStoryItem> = mainViewModel.getPagedStories(token).getOrAwaitValue()
 
         val differ = AsyncPagingDataDiffer(
