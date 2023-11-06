@@ -137,12 +137,12 @@ class UploadActivity : AppCompatActivity() {
 
                         is AlertIndicator.Error -> {
                             showLoading(false)
-                            AlertDialog.Builder(this).apply {
-                                setTitle("Ups!")
-                                setMessage(result.error)
-                                create()
-                                show()
-                            }
+                                AlertDialog.Builder(this).apply {
+                                    setTitle("Ups!")
+                                    setMessage(result.error)
+                                    create()
+                                    show()
+                                }
                         }
                     }
                 }
