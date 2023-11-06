@@ -50,4 +50,5 @@
     <string name="failed_to_get_location">위치를 가져오지 못했습니다</string>
     <string name="empty_image_warning">이미지를 불러올 수 없습니다</string>
     <string name="style_parsing_failed">스타일 파싱 실패.</string>
+    <string name="no_internet_connection">인터넷 연결 없음</string>
 </resources>

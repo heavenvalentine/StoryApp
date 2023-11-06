@@ -50,4 +50,5 @@
     <string name="failed_to_get_location">Gagal mendapatkan lokasi</string>
     <string name="empty_image_warning">Gambar tidak dapat diakses</string>
     <string name="style_parsing_failed">Gagal memproses style.</string>
+    <string name="no_internet_connection">Tidak Ada Koneksi Internet</string>
 </resources>

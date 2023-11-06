@@ -1,8 +1,10 @@
 package com.heaven.storyapp.view.upload
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -107,6 +109,11 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun uploadImage(token: String) {
+        if (!isNetworkConnected()) {
+            showToast(getString(R.string.no_internet_connection))
+            return
+        }
+
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, this).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
@@ -137,17 +144,23 @@ class UploadActivity : AppCompatActivity() {
 
                         is AlertIndicator.Error -> {
                             showLoading(false)
-                                AlertDialog.Builder(this).apply {
-                                    setTitle("Ups!")
-                                    setMessage(result.error)
-                                    create()
-                                    show()
-                                }
+                            AlertDialog.Builder(this).apply {
+                                setTitle("Ups!")
+                                setMessage(result.error)
+                                create()
+                                show()
+                            }
                         }
                     }
                 }
             }
         } ?: showToast(getString(R.string.error_empty_image))
+    }
+
+    private fun isNetworkConnected(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
     }
 
     private fun showToast(message: String) {

@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     is AlertIndicator.Error -> {
                         binding.progressBar.isVisible = false
-                        Toast.makeText(this, alert.error, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.no_internet_connection, Toast.LENGTH_SHORT).show()
                     }
                     is AlertIndicator.Success -> {
                         binding.progressBar.isVisible = false
