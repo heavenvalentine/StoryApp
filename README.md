@@ -110,4 +110,12 @@ Membuat halaman untuk menambah cerita baru yang dapat diakses dari halaman dafta
 
 - [x] Tambahkan catatan atau detail tambahan yang khusus untuk proyek Anda.
 
+![2](https://github.com/heavenvalentine/StoryApp/assets/121389422/f37240ad-2bee-4694-a48b-e541a57712b2)
+![1](https://github.com/heavenvalentine/StoryApp/assets/121389422/ce426aac-3ee1-48b3-844b-b0623f7d1b9c)
+![7](https://github.com/heavenvalentine/StoryApp/assets/121389422/b0e99f93-4d1a-49d6-a319-098bc1a7d9ff)
+![6](https://github.com/heavenvalentine/StoryApp/assets/121389422/49d265a7-a730-40c9-bd12-758b0ab83300)
+![5](https://github.com/heavenvalentine/StoryApp/assets/121389422/44cc98a6-140f-4589-9b9a-43672aec88ef)
+![4](https://github.com/heavenvalentine/StoryApp/assets/121389422/b2460fe0-0b1c-4ed8-82bc-c5c8d303fe5f)
+![3](https://github.com/heavenvalentine/StoryApp/assets/121389422/d5b07745-f937-4b00-81b5-d5167bcd428a)
+
 
